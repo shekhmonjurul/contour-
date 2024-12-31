@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Grid</title>
+    <style>
+        #btns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 75%;
+            margin: auto;
+        }
+
+        #btns button {
+            width: 100%;
+            height: 48px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btns">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+
+        <button id="btn4">4</button>
+        <button id="btn5">5</button>
+        <button id="btn6">6</button>
+
+        <button id="btn7">7</button>
+        <button id="btn8">8</button>
+        <button id="btn9">9</button>
+    </div>
+
+    <div id="count"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn5 = document.getElementById("btn5");
+            let counter = 1
+            btn5.addEventListener("click", () => {
+                // Get the values of the outer buttons
+
+                const btn1 = document.getElementById("btn1");
+                const btn2 = document.getElementById("btn2");
+                const btn3 = document.getElementById("btn3");
+                const btn4 = document.getElementById("btn4");
+                const btn6 = document.getElementById("btn6");
+                const btn7 = document.getElementById("btn7");
+                const btn8 = document.getElementById("btn8");
+                const btn9 = document.getElementById("btn9");
+                const count = document.getElementById("count")
+
+                // Rotate the values clockwise
+                let temp = btn1.innerHTML;
+                btn1.innerHTML = btn4.innerHTML;
+                btn4.innerHTML = btn7.innerHTML;
+                btn7.innerHTML = btn8.innerHTML;
+                btn8.innerHTML = btn9.innerHTML;
+                btn9.innerHTML = btn6.innerHTML;
+                btn6.innerHTML = btn3.innerHTML;
+                btn3.innerHTML = btn2.innerHTML;
+                btn2.innerHTML = temp;
+
+                count.innerHTML ="count your click: " + counter
+                counter += 1
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
